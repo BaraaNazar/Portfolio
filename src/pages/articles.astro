@@ -1,0 +1,38 @@
+---
+import Header from '../components/Header.astro';
+import Sidebar from '../components/Sidebar.astro';
+---
+
+<!DOCTYPE html>
+<html>
+  <Header title="Articles | Baraa Nazar" />
+  <body>
+    <div class="content">
+      <Sidebar selectedItem="articles" />
+      <nav class="main">
+        <div class="container">
+          <div class="back-nav-container">
+            <a href="/" class="back-nav-button w-inline-block">
+              <img src="/assets/back.svg" loading="lazy" alt="" class="back-nav-img" />
+              <div>Back</div>
+            </a>
+          </div>
+          <div class="content-container">
+            <h1>Articles</h1>
+            <section class="items-container">
+              <div class="resouce-items">
+                <div class="single-item">
+                  <div class="project-desc project-desc-list w-richtext">
+                    <p style="color: #a8a8a8; font-size: 16px; line-height: 26px;">
+                      Articles coming soon! I'll be sharing insights, tutorials, and thoughts on frontend development, web technologies, and my journey toward becoming a full-stack developer.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </body>
+</html>

@@ -288,6 +288,13 @@ p {
   padding: 32px;
 }
 
+/* Prevent sidebar from animating during view transitions */
+::view-transition-old(sidebar),
+::view-transition-new(sidebar) {
+  animation: none !important;
+  mix-blend-mode: normal;
+}
+
 .nav-content {
   width: 100%;
   height: 100%;

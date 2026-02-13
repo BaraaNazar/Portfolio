@@ -4,32 +4,50 @@ import Project from "../components/Project.astro";
 import Sidebar from "../components/Sidebar.astro";
 const projects = [
   {
-    title: "CodeCraft",
+    title: "Software Engineer | Digital Zone",
     desc: [
-      "Developed a large-scale e-commerce platform for indie game developers",
-      "Designed and implemented UI, backend, and database architecture",
-      "Contributed to RESTful API and GraphQL design",
-      "Led a team of three engineers for several months"
+      "Lead Frontend Engineer: Led the frontend department for one year, overseeing the development and architecture of the Digital Zone and Ticket Zone ecosystems",
+      "Product Launch & Quality: Orchestrated the release of the Digital Zone mini-app, managing a soft-launch phase to gather user feedback and prioritize post-release optimizations",
+      "Documentation Standards: Established and led comprehensive frontend documentation for the entire product suite, including mini-apps, web platforms, and internal dashboards",
+      "Direct Voucher Redemption: Engineered a 'one-click' voucher redemption system, reducing a multi-step manual process to a streamlined two-step automated flow, significantly enhancing UX",
+      "Event System Expansion: Architected a new event infrastructure for Ticket Zone, expanding the platform's capabilities from sports matches to include workshops and diverse event types",
+      "eSIM Solutions (Rahal): Developed a complete component library for Rahal eSIM using Next.js and Tailwind CSS. Led the implementation of 'Package Plus' (minutes/SMS bundles) and direct eSIM installation for iOS users",
+      "Mobile-Native Experience: Developed a custom Kiosk Mode for all mini-apps to bridge the gap between webviews and native experiences, ensuring a seamless look and feel",
+      "Fintech & Auth: Integrated Super Qi and Qi Services for authentication and payments. Implemented Keycloak for secure dashboard authentication and CASL for robust role-based access control (RBAC)",
+      "Data & Analytics: Led the integration of RudderStack, Sentry, Microsoft Clarity, and Google Analytics to provide deep insights into application performance and user behavior",
+      "Feature Management: Integrated Flagsmith to implement feature flagging, allowing for safer deployments and A/B testing within Ticket Zone",
+      "Bundle Optimization: Reduced the Ticket Zone production bundle size by 26%, significantly improving load times and performance",
+      "Code Refactoring: Overhauled application logic by replacing custom hooks with the usehooks-ts library, enhancing code maintainability and execution speed",
+      "Created a complete web app called Digital Zone from scratch using Alipay technology, integrated within a super app used by more than 100k users, handling over 600k transactions per month",
+      "Successfully integrated the mini app's authentication and payment systems with the super app, ensuring a unified and secure user experience across both applications",
+      "Enhanced event notification design by refactoring code, introducing animated elements for improved engagement and visual appeal",
+      "Executed a comprehensive responsive design for the entire Ticket Zone app, guaranteeing an optimal user experience across desktops, tablets, and mobile phones"
     ],
-    tech: ["React", "Next.js", "Node.js", "MongoDB", "Heroku"]
+    tech: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Keycloak", "CASL", "RudderStack", "Sentry", "Flagsmith", "Alipay"]
   },
   {
-    title: "CloudMason",
+    title: "Frontend Web Developer - Intern | Fuel My Hustle",
     desc: [
-      "Contributed to microservices architecture design for email distribution system",
-      "Created a backend infrastructure with queues and an event bus",
-      "Designed to handle a high volume ~3 million emails per day"
+      "Fixed a bug in the TechClarityCoach website in the heroes card that caused users to leave the website",
+      "Made website improvements and led balablu project"
     ],
-    tech: ["Node.js", "RabbitMQ", "Docker", "Kubernetes"]
+    tech: ["TypeScript", "React", "Next.js", "Tailwind CSS", "Nextra"]
   },
   {
-    title: "Sarah (HealthEase.io)",
+    title: "Frontend Developer - Intern | RadicalX",
     desc: [
-      "Contributed to Israel's largest telehealth platform for doctors and patients",
-      "Developed appointment and billing systems",
-      "Resolved live production bugs and server issues"
+      "Worked as frontend developer using React.js on Chatbot powered by AI which is intended to be used for the company's app under the supervision of the company's front-end developers",
+      "Built the squads team container of the RadicalX app"
     ],
-    tech: ["React", "Node.js", "Express.js", "MySQL", "AWS"]
+    tech: ["Git", "JavaScript", "React", "Tailwind CSS"]
+  },
+  {
+    title: "Frontend Engineer - Freelancer",
+    desc: [
+      "Built more than 6 projects using different frameworks like React and Next.js",
+      "Built personal website using Next.js and Tailwind and adding animation to it using Framer Motion"
+    ],
+    tech: ["Git", "GitHub", "HTML", "CSS", "JavaScript", "Ruby", "Firebase", "React", "Next.js", "Framer Motion"]
   }
 ];
 ---
@@ -37,7 +55,7 @@ const projects = [
 <!DOCTYPE html>
 <html
 >
-  <Header title="Software Development | Sam Bernstein" />
+  <Header title="Software Development | Baraa Nazar" />
   <body>
     <div class="content">
         <Sidebar selectedItem="software-development" />
@@ -50,7 +68,7 @@ const projects = [
             >
           </div>
           <div class="content-container">
-            <h1>Software Development</h1>
+            <h1>Professional Experience</h1>
             <section class="items-container">
                 <div class="resouce-items">
                     {projects.map(project => (

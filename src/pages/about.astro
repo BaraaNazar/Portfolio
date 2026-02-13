@@ -1,0 +1,165 @@
+---
+import Header from '../components/Header.astro';
+import Project from '../components/Project.astro';
+import Sidebar from '../components/Sidebar.astro';
+
+const skills = {
+  technical: {
+    languages: ["JavaScript (ES6+)", "TypeScript", "HTML5", "CSS3", "Ruby"],
+    frameworks: ["React", "Redux", "Next.js", "Zustand", "Material UI", "Tailwind CSS", "Chakra UI"],
+    testing: ["Jest", "React Testing Library", "Cypress"],
+    tools: ["Git", "GitHub", "Firebase", "Netlify", "Framer Motion", "React Admin"]
+  },
+  soft: ["Observation", "Decision making", "Business Communications", "Multi-tasking", "TeamWork", "Time management", "Problem Solving"],
+  languages: [
+    { name: "English", level: "Fluent" },
+    { name: "Arabic", level: "Native" },
+    { name: "Kurdish", level: "Fluent" },
+    { name: "Spanish", level: "Beginner" }
+  ]
+};
+
+const education = [
+  {
+    title: "Frontend Web Development | Re:Coded",
+    period: "Sep 2022 - Jan 2023",
+    desc: [
+      "Completed a 4.5-month immersive Bootcamp with 300+ hours of curriculum and project-based learning",
+      "Technologies: HTML, CSS, JavaScript, React, and Redux",
+      "Collaborating with various design teams to create products across industries"
+    ],
+    tech: ["HTML", "CSS", "JavaScript", "React", "Redux"]
+  },
+  {
+    title: "Bachelor of Pharmacy | Hawler Medical University",
+    period: "Sep 2014 - Sep 2019",
+    desc: [
+      "Graduated from the college of pharmacy",
+      "Worked as a medical representative for 2 years"
+    ],
+    tech: []
+  }
+];
+
+const certificates = [
+  "HTML5 - From Basics to Advanced level (2021) - Udemy",
+  "Legacy JavaScript Algorithms and Data Structures",
+  "Practical CSS3 Mastery Course - Udemy",
+  "21st Century Skills - Re: Coded (2022)",
+  "Frontend Web Development - Re: Coded (2022)",
+  "Power Skills: Agile Product Management",
+  "Power Skills: Time Management",
+  "Power Skills: Business Communications",
+  "Power Skills: Teamwork",
+  "Master Your Job Search: Setting Yourself on a Path to a Sustainable Career in the Digital Economy"
+];
+---
+
+<!DOCTYPE html>
+<html>
+  <Header title="About | Baraa Nazar" />
+  <body>
+    <div class="content">
+      <Sidebar selectedItem="about" />
+      <nav class="main">
+        <div class="container">
+          <div class="back-nav-container">
+            <a href="/" class="back-nav-button w-inline-block">
+              <img src="/assets/back.svg" loading="lazy" alt="" class="back-nav-img" />
+              <div>Back</div>
+            </a>
+          </div>
+          <div class="content-container">
+            <h1>About Me</h1>
+            
+            <section class="items-container">
+              <div class="resouce-items">
+                <div class="single-item">
+                  <h3>Technical Skills</h3>
+                  <div style="margin-bottom: 24px;">
+                    <div class="mini-label-white" style="margin-bottom: 10px;">Languages</div>
+                    <div class="chips-container">
+                      {skills.technical.languages.map(lang => <div class="single-chip">{lang}</div>)}
+                    </div>
+                  </div>
+                  <div style="margin-bottom: 24px;">
+                    <div class="mini-label-white" style="margin-bottom: 10px;">Frameworks/Libraries</div>
+                    <div class="chips-container">
+                      {skills.technical.frameworks.map(fw => <div class="single-chip">{fw}</div>)}
+                    </div>
+                  </div>
+                  <div style="margin-bottom: 24px;">
+                    <div class="mini-label-white" style="margin-bottom: 10px;">Testing Tools</div>
+                    <div class="chips-container">
+                      {skills.technical.testing.map(tool => <div class="single-chip">{tool}</div>)}
+                    </div>
+                  </div>
+                  <div style="margin-bottom: 24px;">
+                    <div class="mini-label-white" style="margin-bottom: 10px;">Other Tools</div>
+                    <div class="chips-container">
+                      {skills.technical.tools.map(tool => <div class="single-chip">{tool}</div>)}
+                    </div>
+                  </div>
+                </div>
+
+                <div class="single-item">
+                  <h3>Soft Skills</h3>
+                  <div class="chips-container">
+                    {skills.soft.map(skill => <div class="single-chip">{skill}</div>)}
+                  </div>
+                </div>
+
+                <div class="single-item">
+                  <h3>Languages</h3>
+                  <div class="project-desc project-desc-list w-richtext">
+                    <ul role="list">
+                      {skills.languages.map(lang => <li>{lang.name}: {lang.level}</li>)}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <h2 style="margin-top: 40px; margin-bottom: 20px;">Education</h2>
+            <section class="items-container">
+              <div class="resouce-items">
+                {education.map(edu => (
+                  <div class="single-item">
+                    <h3>{edu.title}</h3>
+                    <div style="color: #999; font-size: 14px; margin-bottom: 10px;">{edu.period}</div>
+                    <div class="project-desc project-desc-list w-richtext">
+                      <ul role="list">
+                        {edu.desc.map(item => <li>{item}</li>)}
+                      </ul>
+                    </div>
+                    {edu.tech.length > 0 && (
+                      <>
+                        <div class="mini-label-white">Technologies</div>
+                        <div class="chips-container">
+                          {edu.tech.map(tech => <div class="single-chip">{tech}</div>)}
+                        </div>
+                      </>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <h2 style="margin-top: 40px; margin-bottom: 20px;">Certificates</h2>
+            <section class="items-container">
+              <div class="resouce-items">
+                <div class="single-item">
+                  <div class="project-desc project-desc-list w-richtext">
+                    <ul role="list">
+                      {certificates.map(cert => <li>{cert}</li>)}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </body>
+</html>

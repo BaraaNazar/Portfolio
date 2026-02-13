@@ -3,6 +3,7 @@ const { selectedItem } = Astro.props;
 ---
 
 <aside
+  id="sidebar"
   data-animation="default"
   data-collapse="medium"
   data-duration="400"
@@ -10,19 +11,14 @@ const { selectedItem } = Astro.props;
   data-easing2="ease"
   role="banner"
   class="sidebar w-nav"
+  transition:persist="sidebar"
 >
   <div class="nav-content">
     <a href="/" class="w-nav-brand" aria-label="home">
       <div class="niv-data">
-        <img
-          src="/assets/sam.jpg"
-          loading="eager"
-          alt="Profile picture"
-          class="niv-image"
-        />
         <div>
-          <div class="label-white">Sam Bernstein</div>
-          <div class="label-gray">Software Engineer</div>
+          <div class="label-white">Baraa Nazar</div>
+          <div class="label-gray">Frontend Engineer</div>
         </div>
       </div>
     </a>
@@ -60,23 +56,51 @@ const { selectedItem } = Astro.props;
         <div>Software development</div>
       </a>
       <a
-        href="/devops"
+        href="/personal-projects"
         class={`nav-link-container w-inline-block ${
-          selectedItem === 'devops' ? 'w--current' : ''
+          selectedItem === 'personal-projects' ? 'w--current' : ''
         }`}
       >
         <img
-          src="/assets/dns.svg"
+          src="/assets/code.svg"
           loading="eager"
           alt=""
           class="nav-link-image"
         />
-        <div>DevOps</div>
+        <div>Personal projects</div>
       </a>
       <a
-        href="/personal-projects"
+        href="/articles"
         class={`nav-link-container w-inline-block ${
-          selectedItem === 'personal-projects' ? 'w--current' : ''
+          selectedItem === 'articles' ? 'w--current' : ''
+        }`}
+      >
+        <img
+          src="/assets/browser.svg"
+          loading="eager"
+          alt=""
+          class="nav-link-image"
+        />
+        <div>Articles</div>
+      </a>
+      <a
+        href="/notes"
+        class={`nav-link-container w-inline-block ${
+          selectedItem === 'notes' ? 'w--current' : ''
+        }`}
+      >
+        <img
+          src="/assets/database.svg"
+          loading="eager"
+          alt=""
+          class="nav-link-image"
+        />
+        <div>Notes</div>
+      </a>
+      <a
+        href="/about"
+        class={`nav-link-container w-inline-block ${
+          selectedItem === 'about' ? 'w--current' : ''
         }`}
       >
         <img
@@ -85,9 +109,21 @@ const { selectedItem } = Astro.props;
           alt=""
           class="nav-link-image"
         />
-        <div>Personal projects</div>
+        <div>About</div>
       </a>
     </nav>
+
+    <div style="margin-top: auto; padding-top: 24px; border-top: 1px solid #353535;">
+      <div class="mini-label-white" style="margin-top: 0; margin-bottom: 12px;">Contact</div>
+      <div class="label-gray" style="margin-bottom: 8px;">Erbil, Iraq</div>
+      <a href="mailto:baraa.nazar.ph@gmail.com" class="label-gray" style="text-decoration: none; display: block; margin-bottom: 8px;">baraa.nazar.ph@gmail.com</a>
+      <a href="tel:+9647739009009" class="label-gray" style="text-decoration: none; display: block; margin-bottom: 12px;">+9647739009009</a>
+      <div style="display: flex; gap: 8px; align-items: center;">
+        <a href="https://github.com/BaraaNazar" target="_blank" rel="noopener noreferrer" class="label-gray" style="text-decoration: none;">GitHub</a>
+        <span class="label-gray">|</span>
+        <a href="https://www.linkedin.com/in/baraa-nazar-a29226138/" target="_blank" rel="noopener noreferrer" class="label-gray" style="text-decoration: none;">LinkedIn</a>
+      </div>
+    </div>
 
     <div
       class="navbar-icon-button w-nav-button"
@@ -108,8 +144,23 @@ const { selectedItem } = Astro.props;
   <script>
     import { setupNav } from '../scripts/nav.js';
     
+    const updateActiveState = () => {
+      const currentPath = window.location.pathname;
+      const navLinks = document.querySelectorAll('.nav-link-container');
+      
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPath || (currentPath === '/' && href === '/')) {
+          link.classList.add('w--current');
+        } else {
+          link.classList.remove('w--current');
+        }
+      });
+    };
+    
     let cleanup;
     document.addEventListener('astro:page-load', () => {
+      updateActiveState();
       if (cleanup) cleanup();
       cleanup = setupNav();
     });
@@ -117,5 +168,12 @@ const { selectedItem } = Astro.props;
     document.addEventListener('astro:before-swap', () => {
       if (cleanup) cleanup();
     });
+    
+    // Update on initial load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', updateActiveState);
+    } else {
+      updateActiveState();
+    }
   </script>
 </aside>
