@@ -19,3 +19,6 @@ jobs:
       - name: Deploy to VPS
         run: |
           ssh -o StrictHostKeyChecking=no baraa@207.180.196.8 "cd /home/baraa && ./deploy.sh"
+        
+      - name: Test SSH
+        run: ssh -v -o StrictHostKeyChecking=no baraa@207.180.196.8 "echo Connected"
